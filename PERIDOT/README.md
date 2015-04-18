@@ -17,6 +17,6 @@ RBF-WRITERを用いて、このフォルダにある plain\_plain\_epcs4\_auto.r
 - mruby 1.1.0 (RITE0003)
 
 ## 生成元情報
-- Path: https://github.com/kimushu/peridot/tree/feature/rubic/fpga/peridot\_rubic
+- Path: https://github.com/kimushu/peridot/tree/feature/rubic/fpga/peridot_rubic
 - Commit: c8ff38c2d7114918472f6f019174748730fdea38
 
