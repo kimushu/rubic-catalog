@@ -1,0 +1,8 @@
+bootFile: main.rb
+sketch:
+  files:
+    main.rb: {}
+  downloadAll: false
+  rubicVersion: 0.1.0
+  board:
+    class: PeridotBoard
