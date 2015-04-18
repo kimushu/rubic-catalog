@@ -23,11 +23,13 @@ RBF-WRITERを用いて、このフォルダにある plain\_plain\_epcs4\_auto.r
 ## ペリフェラル構成
 START LED(ボード右上)およびデジタル信号ピン(D0～D27)を制御するGPIOのみが搭載されています。
 
-## クラスライブラリ(Peridotクラス)
+## クラスライブラリ
 
-PeridotのIPを参照するためのクラスです。
+### Peridotクラス
 
-### 特異メソッド
+Peridotの各ペリフェラルを参照するためのクラスです。
+
+#### 特異メソッド
 
 **start\_led -> PIOCore**  
     ボード右上にあるSTART LEDを制御するための1-bit幅PIOCoreインスタンスを返します。
@@ -35,11 +37,11 @@ PeridotのIPを参照するためのクラスです。
 **digital\_io -> PIOCore**  
     ボード周囲にあるD0～D27のデジタル信号ピンを制御するための28-bit幅PIOCoreインスタンスを返します。
 
-## クラスライブラリ(PIOCoreクラス)
+### PIOCoreクラス
 
 Altera標準IPのPIO Coreを操作するクラスです。
 
-### インスタンスメソッド
+#### インスタンスメソッド
 **width -> Integer**  
     割り当てられたビット数を返します。
 
