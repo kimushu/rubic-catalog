@@ -1,0 +1,79 @@
+[
+  {
+    "name": "PERIDOT olive with mruby",
+    "uuid": "46315705-2758-4a4f-9781-a2e1bf993069",
+    "board_class": "PeridotBoard",
+    "icon": "",
+    "versions": [
+      {
+        "display_name": "v1.0",
+        "uuid": "7be7b8fb-940a-4a6f-a4a1-1ab3a10a29f1",
+        "rubic_version": ">= 0.2.0",
+        "features": {
+          "mruby": {"class": "MrubyBuilder", "version": "1.0.1"},
+          "UART": {"channels": 2},
+          "SPI": {"channels": 1},
+          "I2C": {"channels": 1},
+          "DSM": {"channels": 6, "description": "Digital Signal Modulator"},
+          "PWM/Servo": {"channels": 22}
+        },
+        "description": {
+          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。mruby実行エンジンが搭載されており、Ruby言語によるプログラミングが可能です。"
+        }
+        "asset": ""
+      }
+    ]
+  },
+  {
+    "name": "PERIDOT olive with MicroPython",
+    "uuid": "1380fca8-97b0-467a-aa25-a1dc7f27ce5c",
+    "board_class": "PeridotBoard",
+    "icon": "",
+    "versions": [
+      {
+        "display_name": "v0.1",
+        "uuid": "9cd3e2bc-ee54-4e5e-8aaa-d4020957db8c",
+        "rubic_version": ">= 0.2.0",
+        "beta": true,
+        "features": {
+          "MicroPython": {"class": "MicroPythonBuilder"},
+          "UART": {"channels": 2},
+          "SPI": {"channels": 1},
+          "I2C": {"channels": 1},
+          "DSM": {"channels": 6, "description": "Digital Signal Modulator"},
+          "PWM/Servo": {"channels": 22}
+        },
+        "description": {
+          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。MicroPython実行エンジンが搭載されており、Python言語によるプログラミングが可能です。"
+        }
+        "asset": ""
+      }
+    ]
+  },
+  {
+    "name": {"ja": "Wakayama.rbボード", "en": "Wakayama.rb board"},
+    "uuid": "93bc4fac-1b76-4764-8ee6-b1de4d97b833",
+    "board_class": "WakayamaRbBoard",
+    "icon": "",
+    "versions": [
+      {
+        "display_name": "ARIDA2 - 1.13 (2015/7/19) f3",
+        "uuid": "24f9353d-ccd2-44b1-924f-4b0d252c05cc",
+        "rubic_version": ">= 0.2.0",
+        "features": {
+          "mruby": {"class": "MrubyBuilder", "version": "1.0.1"},
+          "UART": {"channels": 3},
+          "SPI": {"channels": 1},
+          "ADC": {"channels": 4},
+          "RTC": {},
+          "I2C": {"channels": 1},
+          "PWM/Servo": {"channels": 10}
+        }
+        "description": {
+          "ja": "mrubyを実装したRubyボードです。オブジェクト指向言語Rubyを用いてプログラミングできます。"
+        },
+        "asset": ""
+      }
+    ]
+  }
+]

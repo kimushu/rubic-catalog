@@ -1,0 +1,11 @@
+{
+  "rubic_version": ">= 0.2.0",
+  "sites": [
+    {
+      "uuid": "b665d0f3-d664-402e-8286-8f708f207036",
+      "service": "github",
+      "owner": "kimushu",
+      "repo": "rubic-catalog"
+    }
+  ]
+}
