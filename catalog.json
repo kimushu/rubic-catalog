@@ -19,7 +19,7 @@
         },
         "description": {
           "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。mruby実行エンジンが搭載されており、Ruby言語によるプログラミングが可能です。"
-        }
+        },
         "asset": ""
       }
     ]
@@ -45,7 +45,7 @@
         },
         "description": {
           "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。MicroPython実行エンジンが搭載されており、Python言語によるプログラミングが可能です。"
-        }
+        },
         "asset": ""
       }
     ]
@@ -68,7 +68,7 @@
           "RTC": {},
           "I2C": {"channels": 1},
           "PWM/Servo": {"channels": 10}
-        }
+        },
         "description": {
           "ja": "mrubyを実装したRubyボードです。オブジェクト指向言語Rubyを用いてプログラミングできます。"
         },
