@@ -3,6 +3,7 @@
   "sites": [
     {
       "uuid": "b665d0f3-d664-402e-8286-8f708f207036",
+      "name": {"ja": "Rubic 公式カタログ", "en": "Rubic official catalog"},
       "service": "github",
       "owner": "kimushu",
       "repo": "rubic-catalog"
