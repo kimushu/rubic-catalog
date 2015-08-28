@@ -10,7 +10,7 @@
         "uuid": "7be7b8fb-940a-4a6f-a4a1-1ab3a10a29f1",
         "rubic_version": ">= 0.2.0",
         "features": {
-          "mruby": {"class": "MrubyBuilder", "version": "1.0.1"},
+          "mruby": {"class": "MRubyBuilder", "version": "1.0.1"},
           "UART": {"channels": 2},
           "SPI": {"channels": 1},
           "I2C": {"channels": 1},
@@ -18,14 +18,14 @@
           "PWM/Servo": {"channels": 22}
         },
         "description": {
-          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。mruby実行エンジンが搭載されており、Ruby言語によるプログラミングが可能です。"
+          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けRuby実行エンジンのmrubyが搭載されており、Ruby言語によるプログラミングが可能です。"
         },
         "asset": ""
       }
     ]
   },
   {
-    "name": "PERIDOT olive with MicroPython",
+    "name": "PERIDOT olive with Python",
     "uuid": "1380fca8-97b0-467a-aa25-a1dc7f27ce5c",
     "board_class": "PeridotBoard",
     "icon": "",
@@ -36,7 +36,7 @@
         "rubic_version": ">= 0.2.0",
         "beta": true,
         "features": {
-          "MicroPython": {"class": "MicroPythonBuilder"},
+          "MicroPython": {"class": "PythonBuilder"},
           "UART": {"channels": 2},
           "SPI": {"channels": 1},
           "I2C": {"channels": 1},
@@ -44,7 +44,33 @@
           "PWM/Servo": {"channels": 22}
         },
         "description": {
-          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。MicroPython実行エンジンが搭載されており、Python言語によるプログラミングが可能です。"
+          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けPython実行エンジンのMicroPythonが搭載されており、Python言語によるプログラミングが可能です。"
+        },
+        "asset": ""
+      }
+    ]
+  },
+  {
+    "name": "PERIDOT olive with JavaScript",
+    "uuid": "5ec718c4-d01d-4942-bfa6-c6f8eb78d2e1",
+    "board_class": "PeridotBoard",
+    "icon": "",
+    "versions": [
+      {
+        "display_name": "v0.1",
+        "uuid": "22778091-a4af-466f-94a1-216c72f48734",
+        "rubic_version": ">= 0.2.0",
+        "beta": true,
+        "features": {
+          "Duktape (JavaScript)": {"class": "JavaScriptBuilder"},
+          "UART": {"channels": 2},
+          "SPI": {"channels": 1},
+          "I2C": {"channels": 1},
+          "DSM": {"channels": 6, "description": "Digital Signal Modulator"},
+          "PWM/Servo": {"channels": 22}
+        },
+        "description": {
+          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けJavaScript実行エンジンのDuktapeが搭載されており、JavaScript言語によるプログラミングが可能です。"
         },
         "asset": ""
       }
