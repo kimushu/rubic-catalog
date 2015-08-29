@@ -87,7 +87,7 @@
         "uuid": "24f9353d-ccd2-44b1-924f-4b0d252c05cc",
         "rubic_version": ">= 0.2.0",
         "features": {
-          "mruby": {"class": "MrubyBuilder", "version": "1.0.1"},
+          "mruby": {"class": "MRubyBuilder", "version": "1.0.1"},
           "UART": {"channels": 3},
           "SPI": {"channels": 1},
           "ADC": {"channels": 4},
