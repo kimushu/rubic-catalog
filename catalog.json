@@ -20,6 +20,32 @@
           "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けRuby実行エンジンのmrubyが搭載されており、Ruby言語によるプログラミングが可能です。"
         },
         "asset": ""
+      },
+      {
+        "display_name": "v0.9",
+        "uuid": "95bd5bc2-372a-41bf-beca-9f02ff9aa2fc",
+        "rubic_version": ">= 9.9.9",
+        "features": {
+          "mruby": {"class": "MRubyBuilder", "version": "1.2.3"},
+          "TestD": {}
+        },
+        "description": {
+          "ja": "てすとD：PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けRuby実行エンジンのmrubyが搭載されており、Ruby言語によるプログラミングが可能です。"
+        },
+        "asset": ""
+      },
+      {
+        "display_name": "v0.8",
+        "uuid": "545e6865-1b5b-406f-a36f-e6ef2d50239f",
+        "rubic_version": ">= 0.1.0",
+        "features": {
+          "mruby": {"class": "MRubyBuilder", "version": "3.2.1"},
+          "TestE": {}
+        },
+        "description": {
+          "ja": "てすとE：PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けRuby実行エンジンのmrubyが搭載されており、Ruby言語によるプログラミングが可能です。"
+        },
+        "asset": ""
       }
     }
   },
