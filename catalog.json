@@ -1,125 +1,71 @@
 {
-  "46315705-2758-4a4f-9781-a2e1bf993069": {
-    "name": "PERIDOT olive with mruby",
-    "board_class": "PeridotBoard",
-    "icon": "",
-    "versions": {
-      "7be7b8fb-940a-4a6f-a4a1-1ab3a10a29f1": {
-        "display_name": "v1.0",
-        "rubic_version": ">= 0.2.0",
-        "date_added": 1444541300275,
-        "features": {
-          "mruby": {"class": "MRubyBuilder", "version": "1.0.1"},
-          "UART": {"channels": 2},
-          "SPI": {"channels": 1},
-          "I2C": {"channels": 1},
-          "DSM": {"channels": 6, "description": "Digital Signal Modulator"},
-          "PWM/Servo": {"channels": 22}
-        },
-        "description": {
-          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けRuby実行エンジンのmrubyが搭載されており、Ruby言語によるプログラミングが可能です。"
-        },
-        "asset": ""
-      },
-      "95bd5bc2-372a-41bf-beca-9f02ff9aa2fc": {
-        "display_name": "v0.9",
-        "rubic_version": ">= 9.9.9",
-        "features": {
-          "mruby": {"class": "MRubyBuilder", "version": "1.2.3"},
-          "TestD": {}
-        },
-        "description": {
-          "ja": "てすとD：PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けRuby実行エンジンのmrubyが搭載されており、Ruby言語によるプログラミングが可能です。"
-        },
-        "asset": ""
-      },
-      "545e6865-1b5b-406f-a36f-e6ef2d50239f": {
-        "display_name": "v0.8",
-        "rubic_version": ">= 0.1.0",
-        "features": {
-          "mruby": {"class": "MRubyBuilder", "version": "3.2.1"},
-          "TestE": {}
-        },
-        "description": {
-          "ja": "てすとE：PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けRuby実行エンジンのmrubyが搭載されており、Ruby言語によるプログラミングが可能です。"
-        },
-        "asset": ""
+  "boards": [[
+    "016baa35-4954-4b47-89c2-4d379c314f1d",
+    {"description": {
+      "__class__": "I18n",
+      "content": {
+        "en": "FPGA-based Arduino form-factor board with configurable hardware. This board supports mruby.",
+        "ja": "ハードウェア構成をカスタマイズできるFPGA搭載のArduino互換形状ボード。スクリプト言語エンジンはmrubyを搭載。"
       }
-    }
-  },
-  "1380fca8-97b0-467a-aa25-a1dc7f27ce5c": {
-    "name": "PERIDOT olive with Python",
-    "board_class": "PeridotBoard",
-    "icon": "",
-    "versions": {
-      "9cd3e2bc-ee54-4e5e-8aaa-d4020957db8c": {
-        "display_name": "v0.1",
-        "rubic_version": ">= 0.2.0",
-        "date_added": 1444541378741,
-        "beta": true,
-        "features": {
-          "MicroPython": {"class": "PythonBuilder"},
-          "UART": {"channels": 2},
-          "SPI": {"channels": 1},
-          "I2C": {"channels": 1},
-          "DSM": {"channels": 6, "description": "Digital Signal Modulator"},
-          "PWM/Servo": {"channels": 22}
-        },
-        "description": {
-          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けPython実行エンジンのMicroPythonが搭載されており、Python言語によるプログラミングが可能です。"
-        },
-        "asset": ""
+    },"content": {
+      "items": [{
+        "firmware": {
+          "__class__": "Firmware",
+          "id": "d0a9b0f1-ff57-4f3b-b121-d8e5ad173725",
+          "friendlyName": {
+            "__class__": "I18n",
+            "content": "Legacy mruby (Rubic 0.1.x compatible)"
+          },
+          "rubicVersion": ">= 0.9.0",
+          "author": {
+            "__class__": "I18n",
+            "content": "kimu_shu"
+          },
+          "beta": false,
+          "obsolete": false
+        },"revisions": [{
+          "__class__": "FirmRevision",
+          "id": "56624804-fc8d-4388-8560-5e5eec08067d",
+          "friendlyName": {"__class__": "I18n", "content": "v0.1.0"},
+          "rubicVersion": ">= 0.9.0",
+          "builderClasses": ["MrubyBuilder"],
+          "executables": [["^main\\.mrb$", "i"]],
+          "assets": {
+            "rbf": "https://github.com/kimushu/rubic-catalog/raw/v0.1.x/PERIDOT/plain_plain_epcs4_auto.rpd"
+          }
+        }]
+      }]
+    }}
+  ],[
+    "24f62778-b930-4c1b-8fc0-4fcf4884c09f",
+    {"description": {
+      "__class__": "I18n",
+      "content": {
+        "en": "GR-CITRUS is a compact board with Ruby language. Renesas 32-bit RX631 Group MCU is on-board.",
+        "ja": "GR-CITRUSはRubyが気軽に使える小型ボード。ルネサス32ビットマイコンRX631グループMCUを搭載しています。"
       }
-    }
-  },
-  "5ec718c4-d01d-4942-bfa6-c6f8eb78d2e1": {
-    "name": "PERIDOT olive with JavaScript",
-    "board_class": "PeridotBoard",
-    "icon": "",
-    "versions": {
-      "22778091-a4af-466f-94a1-216c72f48734": {
-        "display_name": "v0.1",
-        "rubic_version": ">= 0.2.0",
-        "date_added": 1444541417269,
-        "beta": true,
-        "features": {
-          "Duktape (JavaScript)": {"class": "JavaScriptBuilder"},
-          "UART": {"channels": 2},
-          "SPI": {"channels": 1},
-          "I2C": {"channels": 1},
-          "DSM": {"channels": 6, "description": "Digital Signal Modulator"},
-          "PWM/Servo": {"channels": 22}
-        },
-        "description": {
-          "ja": "PERIDOTボードにArduino相当の各種機能を実装したコンフィグレーションです。組込み向けJavaScript実行エンジンのDuktapeが搭載されており、JavaScript言語によるプログラミングが可能です。"
-        },
-        "asset": ""
-      }
-    }
-  },
-  "93bc4fac-1b76-4764-8ee6-b1de4d97b833": {
-    "name": {"ja": "Wakayama.rbボード", "en": "Wakayama.rb board"},
-    "board_class": "WakayamaRbBoard",
-    "icon": "",
-    "versions": {
-      "24f9353d-ccd2-44b1-924f-4b0d252c05cc": {
-        "display_name": "ARIDA2 - 1.13 (2015/7/19) f3",
-        "rubic_version": ">= 0.2.0",
-        "date_added": 1444541498900,
-        "features": {
-          "mruby": {"class": "MRubyBuilder", "version": "1.0.1"},
-          "UART": {"channels": 3},
-          "SPI": {"channels": 1},
-          "ADC": {"channels": 4},
-          "RTC": {},
-          "I2C": {"channels": 1},
-          "PWM/Servo": {"channels": 10}
-        },
-        "description": {
-          "ja": "mrubyを実装したRubyボードです。オブジェクト指向言語Rubyを用いてプログラミングできます。"
-        },
-        "asset": ""
-      }
-    }
-  }
+    },"content": {
+      "items": [{
+        "firmware": {
+          "__class__": "Firmware",
+          "id": "809d1206-8cd8-46f6-a657-2f60c050d7c9",
+          "friendlyName": {
+            "__class__": "I18n",
+            "content": "wrbb-v2lib-firm"
+          },
+          "rubicVersion": ">= 0.9.0"
+        },"revisions": [{
+          "__class__": "FirmRevision",
+          "id": "bf956a8a-0f0d-41c2-8943-d46067162c79",
+          "friendlyName": {"__class__": "I18n", "content": "CITRUS-2.12(2016/9/28)f3(256KB)"},
+          "rubicVersion": ">= 0.9.0",
+          "builderClasses": ["MrubyBuilder"],
+          "executables": [["\\.mrb$", "i"]],
+          "assets": {
+            "bin": "https://github.com/wakayamarb/wrbb-v2lib-firm/raw/dd174d9293dc11f7209c84a14930d2d6ffa077c2/firmware/citrus_sketch.bin"
+          }
+        }]
+      }]
+    }}
+  ]]
 }
