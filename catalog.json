@@ -57,12 +57,43 @@
         },"revisions": [{
           "__class__": "FirmRevision",
           "id": "bf956a8a-0f0d-41c2-8943-d46067162c79",
-          "friendlyName": {"__class__": "I18n", "content": "CITRUS-2.12(2016/9/28)f3(256KB)"},
+          "friendlyName": {"__class__": "I18n", "content": "2.12(2016/9/28)f3(256KB)"},
           "rubicVersion": ">= 0.9.0",
           "builderClasses": ["MrubyBuilder"],
           "executables": [["\\.mrb$", "i"]],
           "assets": {
             "bin": "https://github.com/wakayamarb/wrbb-v2lib-firm/raw/dd174d9293dc11f7209c84a14930d2d6ffa077c2/firmware/citrus_sketch.bin"
+          }
+        }]
+      }]
+    }}
+  ],[
+    "498d332f-0172-4797-8653-019d864159e8",
+    {"description": {
+      "__class__": "I18n",
+      "content": {
+        "en": "Wakayama.rb board is a compact board with mruby.",
+        "ja": "Wakayama.rbボードはmrubyを搭載した小型のRubyボードです。"
+      }
+    },"content": {
+      "items": [{
+        "firmware": {
+          "__class__": "Firmware",
+          "id": "1ac3a112-1640-482f-8ca3-cf5afc181fe6",
+          "friendlyName": {
+            "__class__": "I18n",
+            "content": "WRBB4 / ByteCodeFormat0003 / ARIDA"
+          },
+          "rubicVersion": ">= 0.2.0"
+        },"revisions": [{
+          "__class__": "FirmRevision",
+          "id": "6a253d8b-bf94-4bff-a3e6-9a5d8b60bdb3",
+          "friendlyName": {"__class__": "I18n", "content": "1.29(2015/12/8)f3"},
+          "rubicVersion": ">= 0.2.0",
+          "builderClasses": ["MrubyBuilder"],
+          "executables": [["^main\\.mrb$", ""]],
+          "assets.notused": {
+            "mot": "https://raw.githubusercontent.com/tarosay/Wakayama-mruby-board/9ff3f6d8816bb69f4099422b555f391b6e57b217/WRBB4/ByteCodeFormat0003/ARIDA/wrbb.mot"
           }
         }]
       }]
