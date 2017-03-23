@@ -1,0 +1,150 @@
+{
+  "rubicVersion": ">= 0.99.0",
+  "boards": [
+    {
+      "class": "PeridotClassicBoard",
+      "name": {
+        "en": "PERIDOT Classic"
+      },
+      "description": {
+        "en": "Configurable FPGA board with Arduino-like form factor.",
+        "ja": "ハードウェア構成をカスタマイズできるFPGA搭載のArduino互換形状ボード。"
+      },
+      "preview": true,
+      "tags": [
+        {
+          "name": {
+            "en": "FPGA"
+          }
+        },
+        {
+          "name": {
+            "en": "Ruby"
+          },
+          "color": "red"
+        },
+        {
+          "name": {
+            "en": "JavaScript"
+          },
+          "color": "orange"
+        }
+      ],
+      "author": {
+        "en": "J-7SYSTEM WORKS"
+      },
+      "website": {
+        "ja": "https://osafune.github.io/peridot.html"
+      },
+      "firmwares": [
+        {
+          "host": "github",
+          "owner": "kimushu",
+          "repo": "peridot_olive",
+          "branch": "master"
+        }
+      ]
+    },
+    {
+      "class": "PeridotPiccoloBoard",
+      "name": {
+        "en": "PERIDOT Piccolo"
+      },
+      "description": {
+        "en": "Embedded script engine board powered by FPGA",
+        "ja": "組み込み向けスクリプト言語エンジンが使用できるFPGA搭載ボード"
+      },
+      "tags": [
+        {
+          "name": {
+            "en": "FPGA"
+          }
+        },
+        {
+          "name": {
+            "en": "JavaScript"
+          },
+          "color": "orange"
+        },
+        {
+          "name": {
+            "en": "Ruby"
+          },
+          "color": "red"
+        },
+        {
+          "name": {
+            "en": "Lua"
+          },
+          "color": "lightblue"
+        }
+      ],
+      "author": {
+        "en": "J-7SYSTEM WORKS"
+      },
+      "website": {
+        "ja": "https://github.com/osafune/peridot_newgen"
+      },
+      "firmwares": [
+      ]
+    },
+    {
+      "class": "GrCitrusBoard",
+      "name": {
+        "en": "GR-CITRUS"
+      },
+      "description": {
+        "en": "Compact microcontroller board with Ruby language support. Powered by Renesas RX631 group MCU.",
+        "ja": "Rubyが気軽に使える小型マイコンボード。ルネサス製32ビットマイコンRX631グループMCUを搭載。"
+      },
+      "tags": [
+        {
+          "name": {
+            "en": "Ruby"
+          },
+          "color": "red"
+        }
+      ],
+      "author": {
+        "en": "Wakayama.rb"
+      },
+      "website": {
+        "en": "http://gadget.renesas.com/en/product/citrus.html",
+        "ja": "http://gadget.renesas.com/ja/product/citrus.html"
+      },
+      "firmwares": [
+        {
+          "host": "github",
+          "owner": "wakayamarb",
+          "repo": "wrbb-v2lib-firm",
+          "branch": "master"
+        }
+      ]
+    },
+    {
+      "class": "WakayamaRbBoard",
+      "name": {
+        "en": "Wakayama.rb Board",
+        "ja": "Wakayama.rb ボード"
+      },
+      "description": {
+        "en": "Compact microcontroller board with mruby.",
+        "ja": "mrubyを搭載した小型マイコンボード"
+      },
+      "tags": [
+        {
+          "name": {
+            "en": "Ruby"
+          },
+          "color": "red"
+        }
+      ],
+      "author": "Minao Yamamoto",
+      "website": {
+        "ja": "https://github.com/tarosay/Wakayama-mruby-board"
+      },
+      "firmwares": [
+      ]
+    }
+  ]
+}

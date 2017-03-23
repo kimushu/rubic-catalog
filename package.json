@@ -1,0 +1,23 @@
+{
+  "name": "rubic-catalog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Rubic official catalog (VSCode extension version)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimushu/rubic-catalog.git"
+  },
+  "keywords": [
+    "Rubic"
+  ],
+  "author": "kimu_shu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kimushu/rubic-catalog/issues"
+  },
+  "homepage": "https://github.com/kimushu/rubic-catalog#readme"
+}
