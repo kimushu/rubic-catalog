@@ -5,7 +5,8 @@
   "description": "Rubic official catalog (VSCode extension version)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc -watch -p ./"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/kimushu/rubic-catalog/issues"
   },
-  "homepage": "https://github.com/kimushu/rubic-catalog#readme"
+  "homepage": "https://github.com/kimushu/rubic-catalog#readme",
+  "devDependencies": {
+    "@types/node": "^7.0.11",
+    "typescript": "^2.2.1"
+  }
 }
