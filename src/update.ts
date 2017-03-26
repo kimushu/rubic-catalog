@@ -5,6 +5,9 @@ import { mergeObject, mergeObjectArray, getUpdatedCount } from './merger'
 import * as util from 'util';
 import uuidV4 = require('uuid/v4');
 import GitHub = require('github');
+import pify = require('pify');
+import decompress = require('decompress');
+const request = pify(require('request'));
 
 const AUTH_JSON     = "auth.json"
 const CATALOG_JSON  = "catalog.json";
@@ -70,7 +73,30 @@ let ghopt: any = {};
 // Merge rule definitions
 let relSummaryMergeRules = {
     published_at: toDateNumber,
-    updated_at: toDateNumber
+    updated_at: toDateNumber,
+    cache: (ref: RubicCatalog.ReleaseDetail,
+            old: RubicCatalog.ReleaseDetail,
+            refSummary: RubicCatalog.ReleaseSummary,
+            oldSummary: RubicCatalog.ReleaseSummary) => {
+        if (!old && !ref) {
+            console.info(`Downloading asset archive (${refSummary.url})`)
+            return request({
+                url: refSummary.url,
+                encoding: null
+            }).then((response) => {
+                return decompress(response.body);
+            }).then((files) => {
+                let jsonFile = files.find((file) => file.path === RELEASE_JSON);
+                if (!jsonFile) {
+                    return Promise.reject(
+                        Error(`${RELEASE_JSON} not found in (${refSummary.url})`)
+                    );
+                }
+                return JSON.parse(jsonFile.data.toString());
+            });
+        }
+        return ref || old;
+    }
 };
 let firmDetailMergeRules = {
     releases: (refArray: RubicCatalog.ReleaseSummary[], oldArray: RubicCatalog.ReleaseSummary[]) => {
