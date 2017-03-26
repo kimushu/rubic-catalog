@@ -39,6 +39,7 @@
       "firmwares": [
         {
           "uuid": "d0a9b0f1-ff57-4f3b-b121-d8e5ad173725",
+          "official": true,
           "host": "github",
           "owner": "kimushu",
           "repo": "rubic-firmware-sample",
@@ -118,6 +119,7 @@
       "firmwares": [
         {
           "uuid": "809d1206-8cd8-46f6-a657-2f60c050d7c9",
+          "official": true,
           "host": "github",
           "owner": "wakayamarb",
           "repo": "wrbb-v2lib-firm",

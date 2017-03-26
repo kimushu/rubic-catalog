@@ -97,6 +97,9 @@ declare namespace RubicCatalog {
         /** 無効化されているか否か(省略時=false) */
         disabled?: boolean;
 
+        /** ボードベンダーの公式ファームか否か(省略時=false) */
+        official?: boolean;
+
         /** ホスティングサイト */
         host: "github";
 
