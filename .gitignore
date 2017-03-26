@@ -1,5 +1,5 @@
 auth.json
 node_modules
 typings
-/lib
+/lib/*.js.map
 /tmp
