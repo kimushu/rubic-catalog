@@ -1,2 +1,5 @@
+auth.json
 node_modules
+typings
 /lib
+/tmp
