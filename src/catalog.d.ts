@@ -173,10 +173,10 @@ declare namespace RubicCatalog {
      */
     interface ReleaseDetail {
         /** リリースの名称 (存在しない場合、Summaryのnameから引用) */
-        name: LocalizedString;
+        name?: LocalizedString;
 
         /** リリースの説明文 (存在しない場合、Summaryのdescriptionから引用) */
-        description: LocalizedString;
+        description?: LocalizedString;
 
         /** バリエーション一覧 */
         variations: Variation;
