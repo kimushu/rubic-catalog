@@ -20,7 +20,7 @@ let github = new GitHub({
     },
     Promise: Promise
 });
-function toDateNowNumber(from: any): number {
+function toDateNumber(from: any): number {
     if (typeof(from) == "number") { return from; }
     return Date.parse(from);
 }
@@ -69,8 +69,8 @@ let ghopt: any = {};
 
 // Merge rule definitions
 let relSummaryMergeRules = {
-    published_at: toDateNowNumber,
-    updated_at: toDateNowNumber
+    published_at: toDateNumber,
+    updated_at: toDateNumber
 };
 let firmDetailMergeRules = {
     releases: (refArray: RubicCatalog.ReleaseSummary[], oldArray: RubicCatalog.ReleaseSummary[]) => {
