@@ -6,7 +6,12 @@
   "main": "lib/update.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc -watch -p ./"
+    "compile": "tsc -watch -p ./",
+    "force-pull": "git fetch origin && git reset --hard origin/vscode-master",
+    "main": "node lib/update.js",
+    "prepare": "npm run force-pull && npm install",
+    "auto-update": "npm run prepare && npm run main && npm run auto-commit",
+    "auto-commit": "git diff --quiet catalog.json || (git commit catalog.json -m \"Automatic catalog update\" && git push)"
   },
   "repository": {
     "type": "git",
