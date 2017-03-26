@@ -5,7 +5,6 @@
     "command": "npm",
     "isShellCommand": true,
     "isBackground": true,
-    "args": ["run", "compile", "--loglevel", "silent"],
-    "showOutput": "silent",
+    "args": ["run", "install-compile"],
     "problemMatcher": "$tsc-watch"
 }
