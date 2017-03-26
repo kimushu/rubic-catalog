@@ -37,8 +37,10 @@ export function mergeObject<T>(rules: Object, ref: T, old: T): Promise<T> {
                 let rule = rules[<any>key];
                 if (rule == null) {
                     // Drop this key
-                    printLog("DROPPED", key);
-                    ++updated;
+                    if (oval != null) {
+                        printLog("DROPPED", key);
+                        ++updated;
+                    }
                     return;
                 } else if (typeof(rule) !== "function") {
                     // Overwrite value
@@ -54,7 +56,7 @@ export function mergeObject<T>(rules: Object, ref: T, old: T): Promise<T> {
                         hierarchy.pop();
                         if (val != null) {
                             ret[key] = val;
-                        } else {
+                        } else if (oval != null) {
                             printLog("DROPPED", key);
                             ++updated;
                         }
@@ -85,9 +87,8 @@ export function mergeObjectArray<T>(identifier: (item: T) => any, rules: Object,
             let oval: T;
             let rid = identifier(rval);
             if (rid == null) {
-                // Drop this item
-                printLog("DROPPED", `[${i}]`);
-                ++updated;
+                // Ignore this item
+                printLog("IGNORED", `[${i}]`);
                 return;
             }
             let found = old.findIndex((oval) => identifier(oval) == rid);
