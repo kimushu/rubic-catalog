@@ -11,7 +11,7 @@
         "ja": "ハードウェア構成をカスタマイズできるFPGA搭載のArduino互換形状ボード。"
       },
       "preview": true,
-      "tags": [
+      "topics": [
         {
           "name": {
             "en": "FPGA"
@@ -40,8 +40,10 @@
         {
           "host": "github",
           "owner": "kimushu",
-          "repo": "peridot_olive",
-          "branch": "master"
+          "repo": "rubic-firmware-sample",
+          "_repo": "peridot_olive",
+          "branch": "master",
+          "_disabled": true
         }
       ]
     },
@@ -54,7 +56,7 @@
         "en": "Embedded script engine board powered by FPGA",
         "ja": "組み込み向けスクリプト言語エンジンが使用できるFPGA搭載ボード"
       },
-      "tags": [
+      "topics": [
         {
           "name": {
             "en": "FPGA"
@@ -97,7 +99,7 @@
         "en": "Compact microcontroller board with Ruby language support. Powered by Renesas RX631 group MCU.",
         "ja": "Rubyが気軽に使える小型マイコンボード。ルネサス製32ビットマイコンRX631グループMCUを搭載。"
       },
-      "tags": [
+      "topics": [
         {
           "name": {
             "en": "Ruby"
@@ -117,7 +119,8 @@
           "host": "github",
           "owner": "wakayamarb",
           "repo": "wrbb-v2lib-firm",
-          "branch": "master"
+          "branch": "master",
+          "disabled": true
         }
       ]
     },
@@ -131,7 +134,7 @@
         "en": "Compact microcontroller board with mruby.",
         "ja": "mrubyを搭載した小型マイコンボード"
       },
-      "tags": [
+      "topics": [
         {
           "name": {
             "en": "Ruby"

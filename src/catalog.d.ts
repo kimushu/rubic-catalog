@@ -1,6 +1,6 @@
 declare namespace RubicCatalog {
     /**
-     * カタログ情報ルート (公式カタログサイトのcatalog.json)
+     * カタログ情報ルート (公式カタログサイトのcatalog.jsonそのもの)
      */
     interface Root {
         /**
@@ -26,26 +26,36 @@ declare namespace RubicCatalog {
      * 多言語対応文字列 (英語は必須)
      */
     interface LocalizedString {
-        en:  string;    /** English (always required) */
-        de?: string;    /** German   */
-        es?: string;    /** Spanish  */
-        fr?: string;    /** French   */
-        it?: string;    /** Italian  */
-        ja?: string;    /** Japanese */
-        ko?: string;    /** Korean   */
-        ru?: string;    /** Russian  */
+        en:  string;        /** English (always required) */
+        de?: string;        /** German   */
+        es?: string;        /** Spanish  */
+        fr?: string;        /** French   */
+        it?: string;        /** Italian  */
+        ja?: string;        /** Japanese */
+        ko?: string;        /** Korean   */
+        ru?: string;        /** Russian  */
         "zh-cn"?: string;   /** Chinese (China)  */
         "zh-tw"?: string;   /** Chinese (Taiwan) */
     }
 
+    /** トピック定義 */
+    interface Topic {
+        /** トピックの名前 */
+        name: LocalizedString;
+
+        /** 色 */
+        color: null|"gray"|"blue"|"green"|"lightblue"|"orange"|"red";
+    }
+
     /**
-     * ボード定義
+     * ボード定義 (catalog.jsonの一部)
      */
     interface Board {
         /**
          * ボードクラス名 (Rubic内部実装と合わせる)
          * (分かりやすさのためCamelCaseで書いているが、実際には
          *  大文字小文字は区別されない)
+         * ※ワークスペースのボード指定に使用されるIDであり、公開後の変更禁止。
          */
         class: string;
 
@@ -61,17 +71,32 @@ declare namespace RubicCatalog {
         /** WEBサイト URL */
         website: LocalizedString;
 
+        /** プレビュー版か否か(省略時=false) */
+        preview?: boolean;
+
+        /** トピック一覧 */
+        topics: Topic[];
+
         /**
          * ファームウェア一覧
          * この配列の順番が原則としてカタログ上の表示順序となる。
          */
-        firmwares: FirmwareLink[];
+        firmwares: FirmwareSummary[];
     }
 
     /**
-     * ファームウェア定義へのリンク
+     * ファームウェア概要情報 (catalog.jsonの一部)
      */
-    interface FirmwareLink {
+    interface FirmwareSummary {
+        /**
+         * UUID
+         * ※ワークスペースのファーム指定に使用されるIDであり、公開後の変更禁止。
+         */
+        uuid: string;
+
+        /** 無効化されているか否か(省略時=false) */
+        disabled?: boolean;
+
         /** ホスティングサイト */
         host: "github";
 
@@ -84,61 +109,70 @@ declare namespace RubicCatalog {
         /** ブランチ名(省略時=master) */
         branch?: string;
 
-        /** キャッシュ情報 */
-        cache?: Firmware;
+        /** 詳細情報(firmware.jsonの中身) */
+        cache?: FirmwareDetail;
     }
 
     /**
-     * ファームウェア定義
+     * ファームウェア詳細定義 (firmware.json)
      */
-    interface Firmware {
-        /**
-         * このキャッシュの最終更新時刻 (Date.now()の値)
-         */
-        lastUpdated: number;   
+    interface FirmwareDetail {
+        /** 名前 */
+        name: LocalizedString;
 
-        /**
-         * 説明文(GitHubリポジトリのDescriptionから。英語)
-         */
-        description: string;
+        /** 説明 */
+        description: LocalizedString;
 
-        /**
-         * リリース一覧(順序不問。公開日でソートされるため)
-         */
-        releases: ReleaseInfo[];
+        /** プレビュー版か否か(省略時=false) */
+        preview?: boolean;
+
+        /** リリース一覧 */
+        releases?: ReleaseSummary[];
     }
 
     /**
-     * リリース定義
+     * リリース概要定義 (catalog.jsonの一部)
      */
-    interface ReleaseInfo {
-        /** リリースの名称 (GitHubのリリース名称より。英語) */
+    interface ReleaseSummary {
+        /**
+         * リリースのタグ名
+         * ※ワークスペースのファーム指定に使用されるIDであり、公開後の変更禁止。
+         */
+        tag: string;
+
+        /** リリースの名称 (GitHubリリース名、英語のみ) */
         name: string;
 
-        /** リリースの説明 (GitHubのリリース説明より。英語) */
+        /** リリースの説明 (GitHubリリース説明、英語のみ) */
         description: string;
 
-        /** プレリリースか否か(省略時=false) */
-        prerelease?: boolean;
+        /** プレビュー版か否か(省略時=false) */
+        preview?: boolean;
 
         /** 公開日 (GitHubのリリース情報 published_at より。ただし値は Date.now() フォーマット) */
         published_at: number;
 
+        /** 更新日 (assetのupdated_atより) */
+        updated_at: number;
+
+        /** 作者名 (GitHubのauthorのログインID) */
+        author: string;
+
         /** zip assetのURL */
         url: string;
 
-        /** zipに格納された info.json のキャッシュ */
-        data: ReleaseData;
+        /** zipに格納された release.json のキャッシュ */
+        cache: ReleaseDetail;
     }
 
     /**
-     * リリースデータ定義
+     * リリース詳細定義 (release.jsonの中身そのもの)
      */
-    interface ReleaseData {
-        /** リリースの名称 */
+    interface ReleaseDetail {
+        /** リリースの名称 (存在しない場合、Summaryのnameから引用) */
         name: LocalizedString;
 
-        /** リリースの説明文 */
+        /** リリースの説明文 (存在しない場合、Summaryのdescriptionから引用) */
         description: LocalizedString;
 
         /** バリエーション一覧 */
@@ -146,9 +180,15 @@ declare namespace RubicCatalog {
     }
 
     /**
-     * バリエーション定義
+     * バリエーション定義 (release.jsonの一部)
      */
     interface Variation {
+        /**
+         * アーカイブ(zip)内のパス
+         * ※ワークスペースのファーム指定に使用されるIDであり、公開後の変更禁止。
+         */
+        path: string;
+
         /** バリエーションの名前 */
         name: LocalizedString;
 
@@ -157,24 +197,25 @@ declare namespace RubicCatalog {
 
         /** ランタイムの一覧 */
         runtimes: Runtime.Common[];
-
-        /** アーカイブ(zip)内のパス */
-        path: string;
     }
 
     /**
      * ランタイム情報
      */
     namespace Runtime {
+        /** ランタイム共通定義 */
         interface Common {
             /** ランタイムの名前 */
             name: string;
         }
+
+        /** Rubyランタイム(name=mruby) */
         interface Mruby extends Common {
             /** バージョン(x.x.x) */
             version: string;
         }
 
+        /** JavaScript(ES5)ランタイム(name=duktape) */
         interface Duktape extends Common{
         }
     }
