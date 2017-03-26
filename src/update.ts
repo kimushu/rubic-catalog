@@ -206,7 +206,7 @@ let rootMergeRules = {
 // Merge
 mergeObject(rootMergeRules, ref, old).then((newObj) => {
     reportGH();
-    writeFileSync(CATALOG_JSON, JSON.stringify(newObj, null, "  "));
+    writeFileSync(CATALOG_JSON, JSON.stringify(newObj, null));
     process.exit(0);
 }).catch((error) => {
     reportGH();
