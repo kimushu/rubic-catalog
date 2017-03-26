@@ -3,6 +3,7 @@
 import deepEqual = require('deep-equal');
 
 let hierarchy: string[] = [];
+let updated;
 
 function printLog(msg: string, key: string, val?: string): void {
     let msg2 = (msg + "         ").substr(0, 9);
@@ -24,6 +25,7 @@ export function mergeObject<T>(rules: Object, ref: T, old: T): Promise<T> {
         if (key.startsWith("_")) { return; }
         if (keys.indexOf(key) < 0) {
             printLog("REMOVED", key, JSON.stringify(old[key]))
+            ++updated;
         }
     })
     return keys.reduce(
@@ -36,6 +38,7 @@ export function mergeObject<T>(rules: Object, ref: T, old: T): Promise<T> {
                 if (rule == null) {
                     // Drop this key
                     printLog("DROPPED", key);
+                    ++updated;
                     return;
                 } else if (typeof(rule) !== "function") {
                     // Overwrite value
@@ -47,12 +50,13 @@ export function mergeObject<T>(rules: Object, ref: T, old: T): Promise<T> {
                 } else {
                     // Transfer another merge function
                     hierarchy.push(key);
-                    return rule(rval, oval, ref, old).then((val) => {
+                    return Promise.resolve(rule(rval, oval, ref, old)).then((val) => {
                         hierarchy.pop();
                         if (val != null) {
                             ret[key] = val;
                         } else {
                             printLog("DROPPED", key);
+                            ++updated;
                         }
                     });
                 }
@@ -60,8 +64,10 @@ export function mergeObject<T>(rules: Object, ref: T, old: T): Promise<T> {
             // Simple copy
             if (oval == null) {
                 printLog("NEW_VALUE", key, JSON.stringify(rval));
+                ++updated;
             } else if (!deepEqual(oval, rval, {strict: true})) {
                 printLog("UPDATE", key, JSON.stringify(rval));
+                ++updated;
             }
             ret[key] = rval;
         }); }, Promise.resolve()
@@ -81,11 +87,13 @@ export function mergeObjectArray<T>(identifier: (item: T) => any, rules: Object,
             if (rid == null) {
                 // Drop this item
                 printLog("DROPPED", `[${i}]`);
+                ++updated;
                 return;
             }
             let found = old.findIndex((oval) => identifier(oval) == rid);
             if (found < 0) {
                 printLog("NEW_ITEM", `[${i}]`, `(${rid})`);
+                ++updated;
             } else {
                 used[found] = true;
                 oval = old[found];
@@ -102,9 +110,14 @@ export function mergeObjectArray<T>(identifier: (item: T) => any, rules: Object,
                 let oid = identifier(old[i]);
                 if (oid != null) {
                     printLog("REMOVED", "[]", `(${oid})`);
+                    ++updated;
                 }
             }
         }
         return ret;
     });
+}
+
+export function getUpdatedCount(): number {
+    return updated;
 }

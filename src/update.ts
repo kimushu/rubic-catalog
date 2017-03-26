@@ -1,7 +1,7 @@
 'use strict';
 
 import { readFileSync, writeFileSync } from 'fs';
-import { mergeObject, mergeObjectArray } from './merger'
+import { mergeObject, mergeObjectArray, getUpdatedCount } from './merger'
 import * as util from 'util';
 import uuidV4 = require('uuid/v4');
 import GitHub = require('github');
@@ -159,14 +159,22 @@ let firmSummaryMergeRules = {
 };
 let boardMergeRules = {
     firmwares: mergeObjectArray.bind(null, (firmSummary: RubicCatalog.FirmwareSummary) => {
-        return firmSummary.uuid || (uuidV4());
+        if (firmSummary.uuid) { return firmSummary.uuid; }
+        let {owner, repo, branch} = firmSummary;
+        throw Error(
+`UUID required for ${owner}/${repo}/${branch||"master"}.
+Add a new one (${uuidV4()}) to ${TEMPLATE_JSON}`
+        );
     }, firmSummaryMergeRules)
 };
 let rootMergeRules = {
-    lastModified: Date.now(),
     boards: mergeObjectArray.bind(null, (board: RubicCatalog.Board) => {
         return board.class;
-    }, boardMergeRules)
+    }, boardMergeRules),
+    lastModified: (ref, old) => {
+        if (getUpdatedCount() > 0) { return Date.now(); }
+        return old;
+    }
 };
 
 // Merge
