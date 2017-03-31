@@ -10,6 +10,7 @@
         "en": "Configurable FPGA board with Arduino-like form factor.",
         "ja": "ハードウェア構成をカスタマイズできるFPGA搭載のArduino互換形状ボード。"
       },
+      "icon": "images/boards/peridot_64x64.png",
       "preview": true,
       "topics": [
         {
@@ -58,6 +59,7 @@
         "en": "Embedded script engine board powered by FPGA",
         "ja": "組み込み向けスクリプト言語エンジンが使用できるFPGA搭載ボード"
       },
+      "icon": "images/boards/piccolo_64x64.png",
       "topics": [
         {
           "name": {
@@ -101,6 +103,7 @@
         "en": "Compact microcontroller board with Ruby language support. Powered by Renesas RX631 group MCU.",
         "ja": "Rubyが気軽に使える小型マイコンボード。ルネサス製32ビットマイコンRX631グループMCUを搭載。"
       },
+      "icon": "images/boards/grcitrus_64x64.png",
       "topics": [
         {
           "name": {
@@ -138,6 +141,7 @@
         "en": "Compact microcontroller board with mruby.",
         "ja": "mrubyを搭載した小型マイコンボード"
       },
+      "icon": "images/boards/wrbb_64x64.png",
       "topics": [
         {
           "name": {
