@@ -130,32 +130,6 @@
           "disabled": true
         }
       ]
-    },
-    {
-      "class": "WakayamaRbBoard",
-      "name": {
-        "en": "Wakayama.rb Board",
-        "ja": "Wakayama.rb ボード"
-      },
-      "description": {
-        "en": "Compact microcontroller board with mruby.",
-        "ja": "mrubyを搭載した小型マイコンボード"
-      },
-      "icon": "images/boards/wrbb_64x64.png",
-      "topics": [
-        {
-          "name": {
-            "en": "Ruby"
-          },
-          "color": "red"
-        }
-      ],
-      "author": "Minao Yamamoto",
-      "website": {
-        "ja": "https://github.com/tarosay/Wakayama-mruby-board"
-      },
-      "firmwares": [
-      ]
     }
   ]
 }
