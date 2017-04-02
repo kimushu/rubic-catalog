@@ -52,6 +52,7 @@
     },
     {
       "class": "PeridotPiccoloBoard",
+      "disabled": true,
       "name": {
         "en": "PERIDOT Piccolo"
       },
