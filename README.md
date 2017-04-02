@@ -72,9 +72,15 @@ Rubicカタログでは、GitHubのリリース機構を利用します。
 
 ## カタログの内部構造
 
-先述の階層構造に基づき、以下の内部構造でカタログを構成します。
-なお、JSONデータの構造についてはTypeScriptベースのインターフェース定義があります(→[catalog.d.ts](https://github.com/kimushu/rubic-catalog/blob/vscode-master/src/catalog.d.ts))。
-(※現時点でJSONスキーマ定義は用意されていません。)
+この節では、先述の階層構造に基づく内部構造を説明します。
+なお、JSONデータの構造については以下にインターフェース定義があります。
+
+* TypeScriptインターフェースによる定義
+  * [catalog.d.ts](https://github.com/kimushu/rubic-vscode/blob/master/schema/catalog.d.ts)
+* JSONスキーマによる定義
+  * [catalog.schema.json](https://github.com/kimushu/rubic-vscode/blob/master/schema/catalog.schema.json)
+
+※複数の定義がありますが、どれも定義している内容自体は同一であり、表記方法のみが異なります。
 
 ### カタログキャッシュルート (catalog.json)
 
