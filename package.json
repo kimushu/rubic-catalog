@@ -6,6 +6,7 @@
   "main": "lib/update.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "update-schema": "download https://github.com/kimushu/rubic-vscode/raw/master/schema/catalog.d.ts > src/catalog.d.ts",
     "compile": "tsc -watch -p ./",
     "install-compile": "npm install && npm run compile",
     "force-pull": "git fetch origin && git reset --hard origin/vscode-master",
@@ -29,6 +30,7 @@
   "homepage": "https://github.com/kimushu/rubic-catalog#readme",
   "devDependencies": {
     "@types/node": "^7.0.11",
+    "download-cli": "^1.0.1",
     "typescript": "^2.2.1"
   },
   "dependencies": {

@@ -3,3 +3,4 @@ node_modules
 typings
 /lib/*.js.map
 /tmp
+/src/catalog.d.ts
