@@ -198,7 +198,7 @@ let rootMergeRules = {
         return board.class;
     }, boardMergeRules),
     lastModified: (ref, old) => {
-        if (getUpdatedCount() > 0) { return Date.now(); }
+        if (old == null || getUpdatedCount() > 0) { return Date.now(); }
         return old;
     }
 };
