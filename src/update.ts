@@ -165,10 +165,10 @@ let firmSummaryMergeRules = {
                 sha: commit.data.tree.sha
             }, ghopt)));
         }).then((tree: any) => {
-            let file = tree.data.tree.find((item) => item.path === "firmware.json");
+            let file = tree.data.tree.find((item) => item.path === REPOSITORY_JSON);
             if (!file) {
                 return Promise.reject(
-                    Error("This repository does not have firmware.json")
+                    Error(`This repository does not have ${REPOSITORY_JSON}`)
                 );
             }
             return monitorGH(github.gitdata.getBlob(Object.assign({
