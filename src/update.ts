@@ -12,7 +12,7 @@ const request = pify(require('request'));
 const AUTH_JSON     = "auth.json"
 const CATALOG_JSON  = "catalog.json";
 const TEMPLATE_JSON = "template.json";
-const FIRMWARE_JSON = "firmware.json";
+const REPOSITORY_JSON = "rubic-repository.json";
 const RELEASE_JSON  = "release.json";
 const ASSET_PATTERN = /\.(zip|tar\.gz|tgz)$/i;
 
@@ -142,7 +142,7 @@ let firmDetailMergeRules = {
     }
 };
 let firmSummaryMergeRules = {
-    cache: (ignored: null, old: RubicCatalog.FirmwareDetail, refSummary: RubicCatalog.FirmwareSummary) => {
+    cache: (ignored: null, old: RubicCatalog.RepositoryDetail, refSummary: RubicCatalog.RepositorySummary) => {
         if (refSummary.host !== "github") {
             return Promise.reject(Error(`Unknown service host: ${refSummary.host}`));
         }
@@ -178,13 +178,13 @@ let firmSummaryMergeRules = {
             let {content, encoding} = blob.data;
             let jsonText = Buffer.from(content, encoding).toString();
             return JSON.parse(jsonText);
-        }).then((ref: RubicCatalog.FirmwareDetail) => {
+        }).then((ref: RubicCatalog.RepositoryDetail) => {
             return mergeObject(firmDetailMergeRules, ref, old);
         });
     }
 };
 let boardMergeRules = {
-    firmwares: mergeObjectArray.bind(null, (firmSummary: RubicCatalog.FirmwareSummary) => {
+    repositories: mergeObjectArray.bind(null, (firmSummary: RubicCatalog.RepositorySummary) => {
         if (firmSummary.uuid) { return firmSummary.uuid; }
         let {owner, repo, branch} = firmSummary;
         throw Error(

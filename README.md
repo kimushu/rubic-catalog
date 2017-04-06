@@ -15,7 +15,7 @@ This repository is referenced from Rubic VSCode Extension.
 
 * ボード (Board) - 組み込みボードの種類
 
-  * ファームウェア (Firmware) - ボード毎に用意されたファームウェア
+  * リポジトリ (Repository) - ボード毎に用意されたファームウェアの配布元
 
     * リリース (Release) - 一般公開されたバージョン
 
@@ -33,19 +33,21 @@ This repository is referenced from Rubic VSCode Extension.
 * 既存ボードの通信プロトコル変更 (Rubic側の修正が必要になるもの)
 * 既存ボードの廃止
 
-### ファームウェア (Firmware)
+### リポジトリ (Repository)
 
-ファームウェアとは、ボードの中に書き込まれ、ボードの制御やRubicユーザーが作成したプログラムを制御するためのソフトウェアです。
+ボードの中には、ボードの制御やRubicユーザーが作成したプログラムを制御するためのソフトウェア(ファームウェアと呼ばれます)を書き込んで利用します。
 Rubicユーザーが作成するプログラムそのものとファームウェアは原則として異なります(※)ので混同しないようご注意ください。
-
 ※ただし、ユーザーのプログラム＋制御部をまとめてビルドしてファームウェアとして書き込むタイプの場合を除きます。(例: Arduino)
 
-各ボードに対して、対応するファームウェアの一覧はRubicオーナーが管理しています。
+これらのファームウェアはボード毎、提供する機能毎に用意され、リポジトリと呼ばれる単位の配布元から提供されます。
+現時点ではリポジトリを配置するホストとしてGitHubに対応しています。
+
+各ボードに対して、対応するファームウェアを提供するリポジトリの一覧はRubicオーナーが管理しています。
 以下のケースにおいては[issues](https://github.com/kimushu/rubic-vscode/issues)にて問い合わせください。
 
-* ファームウェアの種類の追加
-* ファームウェアを配置しているリポジトリ/所有者/ブランチ等の変更
-* ファームウェアの廃止
+* カタログへのリポジトリ追加
+* リポジトリの所有者/リポジトリ名/ブランチ等の変更
+* カタログからのリポジトリ削除
 
 ### リリース (Release)
 
@@ -63,7 +65,7 @@ Rubicカタログでは、GitHubのリリース機構を利用します。
 
 * ボード : GR-CITRUS
 
-  * ファームウェア : Wakayama.rb Ruby Board V2 library firmware
+  * リポジトリ : Wakayama.rb Ruby Board V2 library firmware
 
     * リリース : 2.19(2016/11/19)
 
@@ -103,13 +105,13 @@ Rubicカタログでは、GitHubのリリース機構を利用します。
 
 * Rubicオーナーだけが変更できます。
 
-### ファームウェア情報 (firmware.json)
+### リポジトリ情報 (rubic-repository.json)
 
-例: [https://github.com/kimushu/rubic-firmware-sample/blob/v0.1/firmware.json](https://github.com/kimushu/rubic-firmware-sample/blob/v0.1/firmware.json)
+例: [https://github.com/kimushu/rubic-firmware-sample/blob/v0.2/rubic-repository.json](https://github.com/kimushu/rubic-firmware-sample/blob/v0.2/rubic-repository.json)
 
-* TypeScript interface: RubicCatalog.FirmwareDetail
+* TypeScript interface: RubicCatalog.RepositoryDetail
 
-* ファームウェアの名前や説明文を記述したJSONファイルです。
+* リポジトリで提供するファームウェアの名前や説明文を記述したJSONファイルです。
 
 * ファームウェア開発者が変更できます。
 
