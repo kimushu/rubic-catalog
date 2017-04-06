@@ -29,6 +29,12 @@
             "en": "JavaScript"
           },
           "color": "orange"
+        },
+        {
+          "name": {
+            "en": "Lua"
+          },
+          "color": "lightblue"
         }
       ],
       "author": {
@@ -47,6 +53,14 @@
           "_repo": "peridot_olive",
           "branch": "master",
           "_disabled": true
+        },
+        {
+          "uuid": "143ad3f0-6cbb-45ce-9162-2ac23860febd",
+          "official": true,
+          "host": "github",
+          "owner": "kimushu",
+          "repo": "olive-classic",
+          "branch": "master"
         }
       ]
     },
@@ -93,6 +107,14 @@
         "ja": "https://github.com/osafune/peridot_newgen"
       },
       "firmwares": [
+        {
+          "uuid": "ec1da73b-cf4f-4550-9953-142a0a55c6af",
+          "official": true,
+          "host": "github",
+          "owner": "kimushu",
+          "repo": "olive-piccolo",
+          "branch": "master"
+        }
       ]
     },
     {
