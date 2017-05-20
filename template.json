@@ -46,7 +46,7 @@
       "repositories": [
         {
           "uuid": "d0a9b0f1-ff57-4f3b-b121-d8e5ad173725",
-          "official": true,
+          "official": false,
           "host": "github",
           "owner": "kimushu",
           "repo": "rubic-firmware-sample",
@@ -145,7 +145,7 @@
       "repositories": [
         {
           "uuid": "df355c37-437b-458d-b31d-90e3577010ce",
-          "official": true,
+          "official": false,
           "host": "github",
           "owner": "kimushu",
           "repo": "rubic-firmware-sample",
