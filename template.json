@@ -157,8 +157,7 @@
           "host": "github",
           "owner": "wakayamarb",
           "repo": "wrbb-v2lib-firm",
-          "branch": "master",
-          "disabled": true
+          "branch": "master"
         }
       ]
     }
