@@ -1,6 +1,4 @@
 auth.json
 node_modules
-typings
-/lib/*.js.map
+/lib
 /tmp
-/src/catalog.d.ts
