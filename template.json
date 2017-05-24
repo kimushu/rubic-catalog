@@ -147,6 +147,7 @@
         "ja": "http://gadget.renesas.com/ja/product/citrus.html"
       },
       "repositories": [
+        /*
         {
           "uuid": "df355c37-437b-458d-b31d-90e3577010ce",
           "official": false,
@@ -155,6 +156,7 @@
           "repo": "rubic-firmware-sample",
           "branch": "master"
         },
+        */
         {
           "uuid": "809d1206-8cd8-46f6-a657-2f60c050d7c9",
           "official": true,
