@@ -8,8 +8,11 @@
             "type": "node",
             "request": "launch",
             "name": "プログラムの起動",
-            "program": "${workspaceRoot}\\lib\\update.js",
-            "outFiles": [],
+            "program": "${workspaceRoot}/lib/index.js",
+            "outFiles": [
+                "${workspaceRoot}/lib/*.js"
+            ],
+            "sourceMaps": true,
             "preLaunchTask": "npm"
         }
     ]

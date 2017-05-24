@@ -6,13 +6,12 @@
   "main": "lib/update.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "update-schema": "download https://github.com/kimushu/rubic-vscode/raw/master/schema/catalog.d.ts > src/catalog.d.ts",
-    "compile": "tsc -watch -p ./",
-    "install-compile": "npm install && npm run compile",
+    "compile": "tsc -p ./",
     "force-pull": "git fetch origin && git reset --hard origin/vscode-master",
-    "main": "node lib/update.js",
-    "prepare": "npm run force-pull && npm install",
-    "auto-update": "npm run prepare && npm run main && npm run auto-commit",
+    "prestart": "npm run compile",
+    "start": "node lib/index.js",
+    "prepare": "npm run force-pull && npm install && npm run compile",
+    "auto-update": "npm run prepare && npm start && npm run auto-commit",
     "auto-commit": "git diff --quiet catalog.json || (git commit catalog.json -m \"Automatic catalog update\" && git push)"
   },
   "repository": {
@@ -31,9 +30,13 @@
   "devDependencies": {
     "@types/node": "^7.0.11",
     "download-cli": "^1.0.1",
+    "tslint": "^5.3.2",
     "typescript": "^2.2.1"
   },
   "dependencies": {
+    "@rubic/catalog-fetcher": "^0.99.8",
+    "ajv": "^4.11.8",
+    "comment-json": "^1.1.3",
     "decompress": "^4.0.0",
     "deep-equal": "^1.0.1",
     "github": "^9.2.0",

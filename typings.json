@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "deep-equal": "registry:dt/deep-equal#1.0.0+20170307111145",
-    "github": "registry:dt/github#0.0.0+20161220120424",
-    "uuid": "registry:npm/uuid#3.0.1+20161206160008"
+    "deep-equal": "registry:dt/deep-equal#1.0.0+20170307111145"
   }
 }

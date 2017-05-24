@@ -16,7 +16,8 @@
         {
           "name": {
             "en": "FPGA"
-          }
+          },
+          "color": "gray"
         },
         {
           "name": {
@@ -41,9 +42,10 @@
         "en": "J-7SYSTEM WORKS"
       },
       "website": {
-        "ja": "https://osafune.github.io/peridot.html"
+        "en": "https://osafune.github.io/peridot.html"
       },
       "repositories": [
+        /*
         {
           "uuid": "d0a9b0f1-ff57-4f3b-b121-d8e5ad173725",
           "official": false,
@@ -54,6 +56,7 @@
           "branch": "master",
           "_disabled": true
         },
+        */
         {
           "uuid": "143ad3f0-6cbb-45ce-9162-2ac23860febd",
           "official": true,
@@ -79,7 +82,8 @@
         {
           "name": {
             "en": "FPGA"
-          }
+          },
+          "color": "gray"
         },
         {
           "name": {
@@ -104,7 +108,7 @@
         "en": "J-7SYSTEM WORKS"
       },
       "website": {
-        "ja": "https://github.com/osafune/peridot_newgen"
+        "en": "https://github.com/osafune/peridot_newgen"
       },
       "repositories": [
         {
