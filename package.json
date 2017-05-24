@@ -1,9 +1,8 @@
 {
   "name": "rubic-catalog",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Rubic official catalog (VSCode extension version)",
-  "main": "lib/update.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc -p ./",
