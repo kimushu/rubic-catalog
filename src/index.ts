@@ -121,13 +121,16 @@ function update(fetchAll: boolean = false): Promise<void> {
                     return promise
                     .then(() => {
                         let name = repoName(repo);
-                        let oldIndex = oldBoard.repositories.findIndex((oldRepo) => oldRepo.uuid === repo.uuid);
+                        let oldIndex: number = -1;
+                        if (oldBoard != null && oldBoard.repositories != null) {
+                            oldIndex = oldBoard.repositories.findIndex((oldRepo) => oldRepo.uuid === repo.uuid);
+                        }
                         let oldRepo: RubicCatalog.RepositorySummary;
                         if (oldIndex >= 0) {
                             oldRepo = oldBoard.repositories.splice(oldIndex, 1)[0];
                         }
                         f.logger.log(`${oldRepo == null ? "Adding" : "Merging"} repository: ${name}`);
-                        if (repo.cache == null) {
+                        if (repo.cache == null && oldRepo != null) {
                             repo.cache = oldRepo.cache;
                         }
                         return f.fetchRepository(repo, repo).then(() => {});
