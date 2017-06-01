@@ -166,6 +166,42 @@
           "branch": "master"
         }
       ]
+    },
+    {
+      "class": "WakayamaRbBoard",
+      "name": {
+        "en": "Wakayama.rb board",
+        "ja": "Wakayama.rb ボード"
+      },
+      "description": {
+        "en": "Compact microcontroller board with mruby runtime",
+        "ja": "mruby実行環境を搭載した小型マイコンモード。"
+      },
+      "icon": "images/boards/wrbb_64x64.png",
+      "topics": [
+        {
+          "name": {
+            "en": "Ruby"
+          },
+          "color": "red"
+        }
+      ],
+      "author": {
+        "en": "Wakayama.rb"
+      },
+      "website": {
+        "en": "https://www.slideshare.net/MinaoYamamoto/wakayamarb-arida-4"
+      },
+      "repositories": [
+        {
+          "uuid": "1ac3a112-1640-482f-8ca3-cf5afc181fe6",
+          "official": true,
+          "host": "github",
+          "owner": "wakayamarb",
+          "repo": "wrbb4-board",
+          "branch": "master"
+        }
+      ]
     }
   ]
 }
