@@ -175,7 +175,7 @@
       },
       "description": {
         "en": "Compact microcontroller board with mruby runtime",
-        "ja": "mruby実行環境を搭載した小型マイコンモード。"
+        "ja": "mruby実行環境を搭載した小型マイコンボード。"
       },
       "icon": "images/boards/wrbb_64x64.png",
       "topics": [
