@@ -9,6 +9,12 @@ This repository is referenced from Rubic VSCode Extension.
 このドキュメントは、[VSCode拡張版Rubic](https://marketplace.visualstudio.com/items?itemName=kimushu.rubic)がサポートするボードの開発者、およびファームウェア開発者向けに、
 ファームウェアをRubicに登録する方法を説明するものです。
 
+## Pull-request作成時のお願い
+
+ご協力ありがとうございます。追加/修正要望等でPull-requestをお送り頂く際は、`catalog.json`以外のファイルに対してのみ修正ください。<br>
+(`catalog.json`は自動生成されるファイルであり、手動で部分的な修正を行うとタイムスタンプ情報に齟齬が生じるため。<br>
+手動で修正をしなくても、マージ実施後に再生成します。)
+
 ## カタログの階層構造
 
 カタログは、以下に示す階層構造を持っています。
