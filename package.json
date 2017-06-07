@@ -9,7 +9,7 @@
     "force-pull": "git fetch origin && git reset --hard origin/vscode-master",
     "prestart": "npm run compile",
     "start": "node lib/index.js",
-    "prepare": "npm run force-pull && npm install && npm prune",
+    "prepare": "npm run force-pull && npm update && npm prune",
     "auto-update": "npm run prepare && npm start && npm run auto-commit",
     "auto-commit": "git diff --quiet catalog.json || (git commit catalog.json -m \"Automatic catalog update\" && git push)"
   },
