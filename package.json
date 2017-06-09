@@ -33,7 +33,7 @@
     "typescript": "^2.2.1"
   },
   "dependencies": {
-    "@rubic/catalog-fetcher": "^0.99.11",
+    "@rubic/catalog-fetcher": "^0.99.12",
     "comment-json": "^1.1.3",
     "uuid": "^3.0.1"
   }
