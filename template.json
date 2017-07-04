@@ -1,5 +1,5 @@
 {
-  "rubicVersion": ">= 0.99.0",
+  "rubicVersion": ">=0.99.0 <=1.0.0-beta9",
   "boards": [
     {
       "class": "PeridotClassicBoard",
