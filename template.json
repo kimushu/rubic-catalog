@@ -45,18 +45,6 @@
         "en": "https://osafune.github.io/peridot.html"
       },
       "repositories": [
-        /*
-        {
-          "uuid": "d0a9b0f1-ff57-4f3b-b121-d8e5ad173725",
-          "official": false,
-          "host": "github",
-          "owner": "kimushu",
-          "repo": "rubic-firmware-sample",
-          "_repo": "peridot_olive",
-          "branch": "master",
-          "_disabled": true
-        },
-        */
         {
           "uuid": "143ad3f0-6cbb-45ce-9162-2ac23860febd",
           "official": true,
@@ -69,7 +57,6 @@
     },
     {
       "class": "PeridotPiccoloBoard",
-      "disabled": true,
       "name": {
         "en": "PERIDOT Piccolo"
       },
@@ -78,6 +65,7 @@
         "ja": "組み込み向けスクリプト言語エンジンが使用できるFPGA搭載ボード"
       },
       "icon": "images/boards/piccolo_64x64.png",
+      "preview": true,
       "topics": [
         {
           "name": {
@@ -147,16 +135,6 @@
         "ja": "http://gadget.renesas.com/ja/product/citrus.html"
       },
       "repositories": [
-        /*
-        {
-          "uuid": "df355c37-437b-458d-b31d-90e3577010ce",
-          "official": false,
-          "host": "github",
-          "owner": "kimushu",
-          "repo": "rubic-firmware-sample",
-          "branch": "master"
-        },
-        */
         {
           "uuid": "809d1206-8cd8-46f6-a657-2f60c050d7c9",
           "official": true,
