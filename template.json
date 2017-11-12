@@ -2,60 +2,6 @@
   "rubicVersion": ">=0.99.0 <=1.0.0-beta9",
   "boards": [
     {
-      "class": "PeridotClassicBoard",
-      "name": {
-        "en": "PERIDOT Classic"
-      },
-      "description": {
-        "en": "Configurable FPGA board with Arduino-like form factor.",
-        "ja": "ハードウェア構成をカスタマイズできるFPGA搭載のArduino互換形状ボード。"
-      },
-      "icon": "images/boards/peridot_64x64.png",
-      "preview": true,
-      "topics": [
-        {
-          "name": {
-            "en": "FPGA"
-          },
-          "color": "gray"
-        },
-        {
-          "name": {
-            "en": "Ruby"
-          },
-          "color": "red"
-        },
-        {
-          "name": {
-            "en": "JavaScript"
-          },
-          "color": "orange"
-        },
-        {
-          "name": {
-            "en": "Lua"
-          },
-          "color": "lightblue"
-        }
-      ],
-      "author": {
-        "en": "J-7SYSTEM WORKS"
-      },
-      "website": {
-        "en": "https://osafune.github.io/peridot.html"
-      },
-      "repositories": [
-        {
-          "uuid": "143ad3f0-6cbb-45ce-9162-2ac23860febd",
-          "official": true,
-          "host": "github",
-          "owner": "kimushu",
-          "repo": "olive-classic",
-          "branch": "master"
-        }
-      ]
-    },
-    {
       "class": "PeridotPiccoloBoard",
       "name": {
         "en": "PERIDOT Piccolo"
