@@ -84,11 +84,7 @@ Rubicカタログでは、GitHubのリリース機構を利用します。
 なお、JSONデータの構造については以下にインターフェース定義があります。
 
 * TypeScriptインターフェースによる定義
-  * [catalog.d.ts](https://github.com/kimushu/rubic-vscode/blob/master/schema/catalog.d.ts)
-* JSONスキーマによる定義
-  * [catalog.schema.json](https://github.com/kimushu/rubic-vscode/blob/master/schema/catalog.schema.json)
-
-※複数の定義がありますが、どれも定義している内容自体は同一であり、表記方法のみが異なります。
+  * [catalog.d.ts](https://github.com/kimushu/rubic-catalog-fetcher/blob/master/lib/catalog.d.ts)
 
 ### カタログキャッシュルート (catalog.json)
 
@@ -146,7 +142,7 @@ Rubicカタログでは、GitHubのリリース機構を利用します。
 このアーカイブは、以下のファイルを含みます。
 
 * release.json - [必須] このリリースの詳細を記述したJSONファイル
-* xxxxx.xxx - [任意] ボードに転送するプログラムのバイナリデータなど
+* xxxxx.xxxx - [任意] ボードに転送するプログラムのバイナリデータなど
 * :
 
 ### リリース詳細情報 (release.json)
