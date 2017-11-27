@@ -88,6 +88,13 @@
           "owner": "wakayamarb",
           "repo": "wrbb-v2lib-firm",
           "branch": "master"
+        },
+        {
+          "uuid": "a803d01e-fbd0-43e1-b517-26967c89d192",
+          "host": "github",
+          "owner": "wakayamarb",
+          "repo": "jabara",
+          "branch": "master"
         }
       ]
     },
