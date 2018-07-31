@@ -134,5 +134,34 @@
         }
       ]
     }
+  ],
+  "boardsV1": [
+    {
+      "rubicVersion": ">= 1.0.0",
+      "class": "M5Stack",
+      "name": {
+        "en": "M5Stack"
+      },
+      "description": {
+        "en": "Modular Stackable Rapid Product development toolkit for IoT"
+      },
+      "preview": true,
+      "topics": [
+        {
+          "name": {
+            "en": "MicroPython"
+          },
+          "color": "orange"
+        }
+      ],
+      "author": {
+        "en": "M5Stack Inc."
+      },
+      "website": {
+        "en": "http://www.m5stack.com/"
+      },
+      "repositories": [
+      ]
+    }
   ]
 }
