@@ -15,9 +15,9 @@
     node-fetch "^2.1.1"
     url-template "^2.0.8"
 
-"@rubic/catalog-fetcher@^0.99.19":
-  version "0.99.19"
-  resolved "https://registry.yarnpkg.com/@rubic/catalog-fetcher/-/catalog-fetcher-0.99.19.tgz#c77fc263b66c87986b66c81e59cabf885b9878f4"
+"@rubic/catalog-fetcher@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@rubic/catalog-fetcher/-/catalog-fetcher-1.0.1.tgz#aa78c80e6881dc1990a5de0f1f94ea7fbc9a27c9"
   dependencies:
     "@octokit/rest" "^15.9.4"
     ajv "^6.5.2"
@@ -857,7 +857,7 @@ util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
-uuid@^3.1.0, uuid@^3.3.2:
+uuid@^3.1.0:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 

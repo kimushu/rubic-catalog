@@ -49,18 +49,23 @@ function update(fetchAll: boolean = false): Promise<void> {
         // Load TEMPLATE_JSON
         f.logger.log(`Loading ${TEMPLATE_JSON}`);
         root = CJSON.parse(
-            fs.readFileSync(path.join(__dirname, "..", TEMPLATE_JSON), JSON_ENCODING)
+            fs.readFileSync(tmplFile, JSON_ENCODING)
         );
+        if (root.boardsV1 == null) {
+            root.boardsV1 = [];
+        }
 
         // Assign new UUID to new repositories
         let assigned = 0;
-        root.boards.forEach((board) => {
-            board.repositories.forEach((repo) => {
-                if (!repo.uuid) {
-                    repo.uuid = uuidV4();
-                    ++assigned;
-                    f.logger.info(`Assigned a new UUID: ${repo.host}:${repo.owner}/${repo.repo}#${repo.branch} => ${repo.uuid}`);
-                }
+        [root.boards, root.boardsV1].forEach((boards) => {
+            boards.forEach((board) => {
+                board.repositories.forEach((repo) => {
+                    if (!repo.uuid) {
+                        repo.uuid = uuidV4();
+                        ++assigned;
+                        f.logger.info(`Assigned a new UUID: ${repo.host}:${repo.owner}/${repo.repo}#${repo.branch} => ${repo.uuid}`);
+                    }
+                });
             });
         });
         if (assigned > 0) {
@@ -71,16 +76,21 @@ function update(fetchAll: boolean = false): Promise<void> {
         root = CJSON.parse(CJSON.stringify(root), null, true);
         root.lastModified = 0;  // This property is not required in TEMPLATE_JSON
         validate(root, TEMPLATE_JSON);
+        if (root.boardsV1 == null) {
+            root.boardsV1 = [];
+        }
 
         // Check UUID conflicts
         let uuids = [];
-        root.boards.forEach((board) => {
-            board.repositories.forEach((repo) => {
-                if (uuids.indexOf(repo.uuid) >= 0) {
-                    f.logger.error(`UUID confliction detected: ${repo.uuid}`);
-                    throw new Error(`invalid ${TEMPLATE_JSON}`);
-                }
-                uuids.push(repo.uuid);
+        [root.boards, root.boardsV1].forEach((boards) => {
+            boards.forEach((board) => {
+                board.repositories.forEach((repo) => {
+                    if (uuids.indexOf(repo.uuid) >= 0) {
+                        f.logger.error(`UUID confliction detected: ${repo.uuid}`);
+                        throw new Error(`invalid ${TEMPLATE_JSON}`);
+                    }
+                    uuids.push(repo.uuid);
+                });
             });
         });
     })
@@ -102,53 +112,66 @@ function update(fetchAll: boolean = false): Promise<void> {
             f.logger.warn(`Continue merging with invalid ${CATALOG_JSON}`);
         }
 
+        if (oldRoot.boardsV1 == null) {
+            oldRoot.boardsV1 = [];
+        }
+
         // Copy lastModified (this field will be updated after)
         root.lastModified = oldRoot.lastModified;
 
         // Merge boards
-        return root.boards.reduce((promise, board) => {
-            let oldIndex = oldRoot.boards.findIndex((oldBoard) => oldBoard.class === board.class);
-            let oldBoard: RubicCatalog.Board;
-            if (oldIndex >= 0) {
-                oldBoard = oldRoot.boards.splice(oldIndex, 1)[0];
-            }
-            return promise
-            .then(() => {
-                f.logger.log(`${oldBoard == null ? "Adding" : "Merging"} board: ${board.class}`);
-
-                // Merge repositories
-                return board.repositories.reduce((promise, repo) => {
-                    return promise
-                    .then(() => {
-                        let name = repoName(repo);
-                        let oldIndex: number = -1;
-                        if (oldBoard != null && oldBoard.repositories != null) {
-                            oldIndex = oldBoard.repositories.findIndex((oldRepo) => oldRepo.uuid === repo.uuid);
-                        }
-                        let oldRepo: RubicCatalog.RepositorySummary;
-                        if (oldIndex >= 0) {
-                            oldRepo = oldBoard.repositories.splice(oldIndex, 1)[0];
-                        }
-                        f.logger.log(`${oldRepo == null ? "Adding" : "Merging"} repository: ${name}`);
-                        if (repo.cache == null && oldRepo != null) {
-                            repo.cache = oldRepo.cache;
-                        }
-                        return f.fetchRepository(repo, repo).then(() => {});
-                    });
-                }, Promise.resolve());
-            })
-            .then(() => {
-                if (oldBoard != null) {
-                    oldBoard.repositories.forEach((repo) => {
-                        let name = repoName(repo);
-                        f.logger.warn(`Removed repository: ${name}`);
-                    });
+        const boardsDefs = [
+            { suffix: "", boards: root.boards, oldBoards: oldRoot.boards },
+            { suffix: "V1", boards: root.boardsV1!, oldBoards: oldRoot.boardsV1! },
+        ];
+        return boardsDefs.reduce((promise, boardsDef) => {
+            const { boards, oldBoards } = boardsDef;
+            return promise.then(() => boards.reduce((promise, board) => {
+                let oldIndex = oldBoards.findIndex((oldBoard) => oldBoard.class === board.class);
+                let oldBoard: RubicCatalog.BoardV1;
+                if (oldIndex >= 0) {
+                    oldBoard = oldBoards.splice(oldIndex, 1)[0];
                 }
-            });
+                return promise
+                .then(() => {
+                    f.logger.log(`${oldBoard == null ? "Adding" : "Merging"} board: ${board.class}`);
+
+                    // Merge repositories
+                    return board.repositories.reduce((promise, repo) => {
+                        return promise
+                        .then(() => {
+                            let name = repoName(repo);
+                            let oldIndex: number = -1;
+                            if (oldBoard != null && oldBoard.repositories != null) {
+                                oldIndex = oldBoard.repositories.findIndex((oldRepo) => oldRepo.uuid === repo.uuid);
+                            }
+                            let oldRepo: RubicCatalog.RepositorySummaryV1;
+                            if (oldIndex >= 0) {
+                                oldRepo = oldBoard.repositories.splice(oldIndex, 1)[0];
+                            }
+                            f.logger.log(`${oldRepo == null ? "Adding" : "Merging"} repository: ${name}`);
+                            if (repo.cache == null && oldRepo != null) {
+                                repo.cache = oldRepo.cache;
+                            }
+                            return f.fetchRepository(repo, repo, boardsDef.suffix).then(() => {});
+                        });
+                    }, Promise.resolve());
+                })
+                .then(() => {
+                    if (oldBoard != null) {
+                        oldBoard.repositories.forEach((repo) => {
+                            let name = repoName(repo);
+                            f.logger.warn(`Removed repository: ${name}`);
+                        });
+                    }
+                });
+            }, Promise.resolve()));
         }, Promise.resolve())
         .then(() => {
-            oldRoot.boards.forEach((board) => {
-                f.logger.warn(`Removed board: ${board.class}`);
+            [oldRoot.boards, oldRoot.boardsV1].forEach((boards) => {
+                boards.forEach((board) => {
+                    f.logger.warn(`Removed board: ${board.class}`);
+                });
             });
         });
     })
@@ -176,7 +199,7 @@ function update(fetchAll: boolean = false): Promise<void> {
 }
 
 let fetchAll = (process.argv.indexOf("--fetch-all") >= 0);
-update().then((fetchAll) => {
+update(fetchAll).then(() => {
     console.log("==== Finished ====");
     process.exit(0);
 }, (reason) => {
